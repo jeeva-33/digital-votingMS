@@ -1,0 +1,2 @@
+# digital-votingMS
+Voting Management System is a Python-based application with a Tkinter GUI and MySQL backend that automates the election process. It allows voters to register, log in, and cast their vote securely, while preventing duplicate voting. Admins can manage candidates, monitor votes in real-time, and declare results instantly. This project demonstrates secure, efficient, and user-friendly digital voting for small-scale elections .
