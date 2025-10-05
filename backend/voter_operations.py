@@ -14,11 +14,16 @@ def register_voter(name, age, gender, username, password):
     print(f"✅ Voter '{name}' registered successfully!")
 
 # 2️⃣ Voter login
+from backend.db_connections import get_connection
+
 def voter_login(username, password):
-    conn = create_connection()
+    conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT voter_id, has_voted FROM Voter WHERE username=%s AND password=%s", (username, password))
-    voter = cursor.fetchone()  # returns None if no match
+    cursor.execute(
+        "SELECT voter_id, has_voted FROM Voter WHERE username=%s AND password=%s",
+        (username, password)
+    )
+    voter = cursor.fetchone()  # Returns None if no match
     conn.close()
     return voter
 
