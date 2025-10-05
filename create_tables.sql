@@ -31,6 +31,8 @@ CREATE TABLE IF NOT EXISTS Vote (
     FOREIGN KEY (candidate_id) REFERENCES Candidate(candidate_id)
 );
 
+show tables;
+
 INSERT INTO Admin (username, password)
 SELECT 'admin', 'admin123'
 WHERE NOT EXISTS (SELECT * FROM Admin WHERE username='admin');
