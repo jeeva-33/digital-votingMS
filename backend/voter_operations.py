@@ -15,13 +15,13 @@ def register_voter(name, age, gender, username, password):
 
 # 2️⃣ Voter login
 def voter_login(username, password):
-    conn = get_connection()
+    conn = create_connection()
     cursor = conn.cursor()
-    query = "SELECT voter_id, has_voted FROM Voter WHERE username=%s AND password=%s"
-    cursor.execute(query, (username, password))
-    voter = cursor.fetchone()
+    cursor.execute("SELECT voter_id, has_voted FROM Voter WHERE username=%s AND password=%s", (username, password))
+    voter = cursor.fetchone()  # returns None if no match
     conn.close()
-    return voter  # Returns (voter_id, has_voted) or None if login fails
+    return voter
+
 
 # 3️⃣ Cast a vote
 def cast_vote(voter_id, candidate_id):
