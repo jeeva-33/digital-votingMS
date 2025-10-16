@@ -1,6 +1,8 @@
 CREATE DATABASE voting_db;
 USE voting_db;
+UPDATE Voter SET has_voted = 0 WHERE username = 'alice123';
 
+UPDATE Voter SET age=19 WHERE username='gokul123';
 CREATE TABLE IF NOT EXISTS Admin (
     admin_id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) UNIQUE,
@@ -36,3 +38,6 @@ show tables;
 INSERT INTO Admin (username, password)
 SELECT 'admin', 'admin123'
 WHERE NOT EXISTS (SELECT * FROM Admin WHERE username='admin');
+
+INSERT INTO VOTER VALUES(2,"gokul",17,"male","gokul123",1234,0)
+
